@@ -242,7 +242,11 @@ export default function CaptionCreator() {
       <div className="container">
         <h2 className="mb-3 text-2xl font-bold">Caption Creator</h2>
         <div id="hint" className="mb-3 text-sm text-gray-600 italic">
-          📌 <b>Instructions:</b> Chọn ảnh và click vào để thêm text. Ấn <b>Enter</b> để lưu text (có thể kéo thả). Ấn <b>ESC</b> để hủy nhập. Chọn text rồi ấn <b>Delete</b> để xóa.
+          📌 <b>Instructions:</b> Select an image and click on it to add text.
+          Press <b>Enter</b> to save text (it remains draggable).
+          Press <b>ESC</b> to cancel text input.
+          Click on a text element to select it, then press <b>Delete</b> to remove it.
+          Each drag or delete action is recorded for undo/redo.
         </div>
         <div className="mb-3">
           <label htmlFor="imageLoader" className="block font-medium">
