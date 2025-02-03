@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect, MouseEvent, KeyboardEvent } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import type { MouseEvent as ReactMouseEvent, KeyboardEvent as ReactKeyboardEvent } from "react";
 
 interface TextObj {
   id: number;
@@ -25,7 +26,7 @@ const TextElement: React.FC<{
   const elementRef = useRef<HTMLDivElement>(null);
   const startPos = useRef({ mouseX: 0, mouseY: 0, elemX: textObj.x, elemY: textObj.y });
 
-  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+  const handleMouseDown = (e: ReactMouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     onSelect(textObj.id);
     startPos.current = {
@@ -41,7 +42,7 @@ const TextElement: React.FC<{
       onUpdatePosition(textObj.id, startPos.current.elemX + deltaX, startPos.current.elemY + deltaY);
     };
 
-    const handleMouseUp = (ev: MouseEvent) => {
+    const handleMouseUp = (_ev: MouseEvent) => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
       // Gọi callback khi kết thúc kéo thả với vị trí cuối cùng
@@ -134,7 +135,7 @@ export default function CaptionCreator() {
     ctx.drawImage(img, 0, 0);
   }, [img]);
 
-  const handleContainerClick = (e: MouseEvent<HTMLDivElement>) => {
+  const handleContainerClick = (e: ReactMouseEvent<HTMLDivElement>) => {
     if ((e.target as HTMLElement).closest(".text-element")) return;
     setSelectedId(null);
     if (editingInput) return;
@@ -144,7 +145,7 @@ export default function CaptionCreator() {
     setInputValue("");
   };
 
-  const handleInputKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleInputKeyDown = (e: ReactKeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       if (inputValue.trim() !== "") {
@@ -176,7 +177,7 @@ export default function CaptionCreator() {
   };
 
   // Hàm xử lý khi kết thúc thao tác kéo thả, lưu lại state hiện tại
-  const handleDragEnd = (id: number, finalX: number, finalY: number) => {
+  const handleDragEnd = (_id: number, _finalX: number, _finalY: number) => {
     // Lưu lại state cuối cùng của thao tác kéo thả
     saveState(textsRef.current);
   };
