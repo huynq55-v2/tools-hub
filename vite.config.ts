@@ -5,7 +5,6 @@ import path from "path"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/tools-hub/",
   plugins: [
     react(),
     tailwindcss(),
