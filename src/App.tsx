@@ -7,6 +7,8 @@ import { Sun, Moon } from "lucide-react";
 import { Routes, Route, Link } from 'react-router-dom';
 import CaptionCreator from './CaptionCreator';
 
+import { Helmet } from 'react-helmet';
+
 const tools = [
   { name: "Caption creator", link: "/caption-creator" },
   { name: "EPUB to PDF", link: "/epub-to-pdf" },
@@ -29,9 +31,24 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen p-6 bg-white text-black dark:bg-gray-900 dark:text-white">
+      <Helmet>
+        <title>Home Page - Tools Hub</title>
+        <meta name="google-site-verification" content="aCpNSoZ9mp7R03n6LH6jBDgxxbkEUpvE2mnUjI7z9UE" />
+        <meta
+          name="description"
+          content="The homepage of Tools Hub provides a list of useful tools such as Caption Creator, EPUB to PDF, QR Generator, and Image Compressor. Experience light/dark mode and quickly find the tools you need."
+        />
+        <meta
+          name="keywords"
+          content="Tools Hub, caption creator, epub to pdf, qr generator, image compressor, dark mode, tool search"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
       {/* Header chung */}
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Tools Hub</h1>
+        <h1 className="text-3xl font-bold"><a href="/">Tools Hub</a></h1>
         <Button variant="outline" onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? <Sun size={20} className="text-yellow-500" /> : <Moon size={20} />}
         </Button>

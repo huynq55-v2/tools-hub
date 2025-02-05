@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import type { MouseEvent as ReactMouseEvent, KeyboardEvent as ReactKeyboardEvent } from "react";
+import { Helmet } from "react-helmet";
 
 interface TextObj {
   id: number;
@@ -240,6 +241,19 @@ export default function CaptionCreator() {
 
   return (
     <div className="min-h-screen p-6 bg-white text-black dark:bg-gray-900 dark:text-white">
+      <Helmet>
+        <title>Caption Creator - Tools Hub</title>
+        <meta
+          name="description"
+          content="Caption Creator allows users to add custom text to images with various font options. Drag, edit, and download your annotated images easily."
+        />
+        <meta
+          name="keywords"
+          content="Caption Creator, image text editor, meme maker, text on image, font customization, image annotation"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
       <div className="container">
         <h2 className="mb-3 text-2xl font-bold">Caption Creator</h2>
         <div id="hint" className="mb-3 text-sm text-gray-600 italic">
