@@ -33,7 +33,6 @@ export default function HomePage() {
     <div className="min-h-screen p-6 bg-white text-black dark:bg-gray-900 dark:text-white">
       <Helmet>
         <title>Home Page - Tools Hub</title>
-        <meta name="google-site-verification" content="aCpNSoZ9mp7R03n6LH6jBDgxxbkEUpvE2mnUjI7z9UE" />
         <meta
           name="description"
           content="The homepage of Tools Hub provides a list of useful tools such as Caption Creator, EPUB to PDF, QR Generator, and Image Compressor. Experience light/dark mode and quickly find the tools you need."
